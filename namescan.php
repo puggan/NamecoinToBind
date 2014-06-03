@@ -114,7 +114,8 @@ $template = str_replace('@@DOMAINE@@', 'bit', $template);
 #$template = str_replace('%%serial%%', '1', $template);
 $template = str_replace('%%authns%%', $authoritativeNS[0][0], $template);
 $template = str_replace('%%email%%', 'hostmaster.'.$authoritativeNS[0][0], $template);
-$template = str_replace('%%serial%%', time()-1303087979, $template);
+// use block number * 1000 as the serial
+$template = str_replace('%%serial%%', $getinfo['blocks']*1000, $template);
 foreach($authoritativeNS as $i => $ns) {
 	$template .= "	  IN NS   ".$authoritativeNS[$i][0].".\n";
 	foreach((array)$authoritativeNS[$i][1] as $ip) {
