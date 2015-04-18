@@ -28,7 +28,7 @@ if(!$getinfo_old = get_cache('getinfo')) {
 	$getinfo_old = array('blocks' => 0);
 }
 if($getinfo['blocks'] == $getinfo_old['blocks']) {
-	echo 'Still on same block'; exit;
+	echo 'Still on same block' . PHP_EOL; exit;
 }
 echo "New blocks : ".($getinfo['blocks'] - $getinfo_old['blocks'])."\n";
 showDebug(0);
@@ -39,7 +39,7 @@ $diff = $getinfo['blocks'] - $getinfo_old['blocks'];
 $new_names = $rpc->name_filter("^d/[a-z0-9_-]+$", $diff);
 #echo '<pre>'; print_r($new_names);
 if(!count($new_names)) {
-	echo 'No new name since last scan'; exit;
+	echo 'No new name since last scan' . PHP_EOL; exit;
 }
 showDebug(1);
 
@@ -91,7 +91,7 @@ foreach($new_names as $name) {
 	}
 }
 if(!$nb_new_names) {
-	echo 'No new bind domain'; exit;
+	echo 'No new bind domain' . PHP_EOL; exit;
 }
 echo "New domains : ".($nb_new_names)."\n";
 set_cache('names_block', $names_block);
