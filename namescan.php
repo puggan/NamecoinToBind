@@ -13,7 +13,8 @@ if(isset($showDebug) && $showDebug) {
 	error_reporting(E_ALL ^ E_NOTICE);
 	ini_set('display_errors','On');
 }
-ini_set('memory_limit', 200*1024*1024);
+#ini_set('memory_limit', 200*1024*1024);
+ini_set('memory_limit', 3*1024*1024*1024);
 
 //
 $rpc = new jsonRPCClient($jsonConnect);
